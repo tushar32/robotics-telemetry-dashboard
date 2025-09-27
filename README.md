@@ -100,32 +100,6 @@ npm start
 
 The frontend will start on `http://localhost:3000`
 
-### 4. Docker & Docker Compose (Recommended)
-
-The easiest way to run the entire application stack (PostgreSQL database, backend, and frontend) is by using Docker.
-
-**Prerequisites:**
-- Docker installed and running.
-- Docker Compose installed.
-
-**Instructions:**
-
-1.  **Configure Environment:**
-    This setup uses the `.env` files in both the `backend` and `frontend` directories. Ensure they are created from their respective `.env.example` files.
-
-    **Important:** In `backend/.env`, make sure the `DB_HOST` is set to the name of the database service in the `docker-compose.yml` file:
-    ```env
-    DB_HOST=postgres
-    DB_PASSWORD=password123 # Must match docker-compose.yml
-    ```
-
-2.  **Launch the Application:**
-    From the root of the project, run:
-    ```bash
-    docker-compose up --build
-    ```
-    This command will build the Docker images for the frontend and backend, start all services, and connect them on a shared network. The application will be available at `http://localhost:3000`.
-
 ## 🗄️ Database Schema
 
 ### Users Table
