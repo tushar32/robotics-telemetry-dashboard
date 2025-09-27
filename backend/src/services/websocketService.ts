@@ -166,22 +166,6 @@ export class WebSocketService {
     }
   }
 
-  // Method to broadcast telemetry updates to specific robot subscribers
-  public broadcastRobotUpdate(robotId: string, telemetryData: any) {
-    this.io.to(`robot_${robotId}`).emit('robot_update', {
-      robot_id: robotId,
-      ...telemetryData
-    });
-  }
-
-  // Method to broadcast system-wide notifications
-  public broadcastNotification(notification: { type: string; message: string; data?: any }) {
-    this.io.emit('notification', {
-      ...notification,
-      timestamp: new Date().toISOString()
-    });
-  }
-
   // Initialize the service
   async initialize() {
     try {
@@ -197,20 +181,6 @@ export class WebSocketService {
   // Get connected clients count
   getConnectedClientsCount(): number {
     return this.connectedClients.size;
-  }
-
-  // Get connected clients info (admin only)
-  getConnectedClientsInfo() {
-    const clients: any[] = [];
-    for (const [socketId, socket] of this.connectedClients.entries()) {
-      clients.push({
-        socketId,
-        username: socket.username,
-        role: socket.role,
-        connectedAt: socket.handshake.time
-      });
-    }
-    return clients;
   }
 
   // Graceful shutdown

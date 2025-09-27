@@ -239,20 +239,6 @@ The system includes a realistic telemetry simulator that:
 - **IAM Roles:** Access management
 - **SSL/TLS:** HTTPS encryption
 
-## 🧪 Testing
-
-### Backend Testing
-```bash
-cd backend
-npm test
-```
-
-### Frontend Testing
-```bash
-cd frontend
-npm test
-```
-
 ## ✨ Key Optimizations
 
 This project includes several key optimizations to ensure high performance and production readiness.
